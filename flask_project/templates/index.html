@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+
+</form>
+
+        <style>
+body{
+    background-image:  url('/static//html-color.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+</style>
+</head>
+<body>
+    <form action = "/" method="POST" id="searchForm">
+    <input type="text" id="searchBar" name="searchBar">
+    <input id="submit" name="submit" type="submit" value="Search">
+<center><h1 style="color:#17202A">Famous Paintings</h1></center>
+<center><h2>Which are your favorite famous art paintings? Are they on our list of the world’s most famous paintings? Perhaps you will discover a few famous artworks you have not heard of before. Let’s dive into our list of the world’s most popular paintings.</h2>
+    {% for painting in painting_data%}
+        <a href="{{url_for('painting_info', painting_id=painting.id)}}"> <img src="{{ url_for('display_image', filename=painting.filename)}}", style="border-radius: 10%;align:center;"width=250" height=250"></a>
+    {%endfor%}
+ </center>
+    <a href="/add_data">
+        <div style="text-align: left"><img src="../static/add_data.jpg" alt="Web Logo"  width="70" height="50" /></div>
+    </a>
+ <footer>
+    <p>Copyright © 2023</p>
+  </footer>
+</body>
+</html>

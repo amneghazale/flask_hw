@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My painting</title>
+    <link rel="stylesheet"  href={{url_for('static',filename='mystyle.css')}}>
+    <a href="/">
+        <div style="text-align: left"><img src="../static/logo3.jpg" alt="Web Logo"  width="300" height="100" /></div>
+    </a>
+</head>
+<body>
+<ol>
+
+    <h3>Painting tiltle</h3>
+
+  {{painting_specific.painting_title}}
+
+     <h2>Poster: </h2>
+  <a href="{{url_for('painting_info', painting_id=painting_specific.id)}}"><img src ="{{ url_for('display_image', filename=painting_specific.filename)}}", style="border-radius: 10%;" width="246" height="300" ></a>
+
+     <h3>Description</h3>
+
+  {{painting_specific.description}}
+
+     <h3>Artist</h3>
+
+  {{painting_specific.artist}}
+
+     <h3>Current location</h3>
+
+  {{painting_specific.current_location}}
+
+     <h3>Date created</h3>
+
+  {{painting_specific.date_created}}
+
+</ol>
+<form method="post" action="/add_review">
+    <label>Name</label></br>
+    <input type="text" name="name" required></br>
+    <label>Review</label></br>
+    <textarea type="text" name="review_text"></textarea></br>
+    <label>Rating:</label>
+        <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br>
+    <input type="hidden" name="painting_id" value="{{painting_specific.id}}">
+    <button type="submit">ADD</button>
+</form>
+<ol>
+    {% for review in reviews_specific%}
+    <li>{{review.name}}
+    {{review.review_text}}
+    {{review.rating}}</li>
+    {%endfor%}
+</ol>
+<a href="/delete/{{painting_specific.id}}" type="button>">Delete</a>
+<a href="/alter_painting/{{painting_specific.id}}" type="button">Alter</a>
+ <footer>
+    <p>Copyright © 2023</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alter</title>
+           <style>
+     body{
+    background-image:  url('/static//html-color.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+form{
+ line-height: 3;
+ font-size: 1.2em;
+    }
+</style>
+</head>
+<body>
+<a href="/">
+        <div style="text-align: left"><img src="../static/logo3.jpg" alt="Web Logo"  width="300" height="100" /></div>
+    </a>
+
+  <form method="post" enctype="multipart/form-data">
+      <dl>
+        <labe>Poster update</labe>
+        <p>
+          <input type="file" name="filename">
+        </p>
+      </dl>
+      <label>Painting title</label>
+      <input type="text" name="painting_title"></br>
+      <label>Description</label>
+      <textarea type="text" name="description"></textarea></br>
+      <label>Artist</label>
+      <input type="text" name="artist"></br>
+      <label>Current location</label>
+      <input type="text" name="current_location"></br>
+      <label>Date created</label>
+      <input type="text" name="date_created"></br>
+      <button type="submit">Update</button>
+    </form>
+  <footer>
+    <p>Copyright © 2023</p>
+  </footer>
+</body>
+</html>
